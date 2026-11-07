@@ -23,6 +23,10 @@
       }
     },
     {
+      "step": "setSiteLanguage",
+      "language": "ru_RU"
+    },
+    {
       "step": "runPHP",
       "code": "<?php\nrequire_once '/wordpress/wp-load.php';\nrequire_once ABSPATH . 'wp-admin/includes/file.php';\nrequire_once ABSPATH . 'wp-admin/includes/media.php';\nrequire_once ABSPATH . 'wp-admin/includes/image.php';\nif ( function_exists( 'konstanta_import_demo_content' ) ) {\n\tkonstanta_import_demo_content( true );\n\tupdate_option( 'konstanta_demo_done', time() );\n\tglobal $wp_rewrite;\n\tif ( $wp_rewrite ) {\n\t\t$wp_rewrite->set_permalink_structure( '/%postname%/' );\n\t\t$wp_rewrite->flush_rules( true );\n\t}\n\techo 'Konstanta demo content imported';\n} else {\n\techo 'Demo import function not found';\n}"
     }
